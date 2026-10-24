@@ -1,0 +1,16 @@
+# dependencies / tooling
+node_modules/
+.pnpm-store/
+
+# local dev scratch
+_verify/
+_preflight/
+_test/
+*.log
+*.tmp
+.probe.txt
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,19 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax and manifest check
+        run: npm run check
+      - name: Validate locale JSON
+        run: |
+          node -e "for (const f of ['package.json','locale/en.json','locale/zh.json']) { JSON.parse(require('fs').readFileSync(f,'utf8')); console.log(f, 'ok') }"

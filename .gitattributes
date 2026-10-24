@@ -1,0 +1,3 @@
+# Normalize line endings in the repository; Windows checkouts stay LF because
+# everything here is source text consumed by Node.
+* text=auto eol=lf

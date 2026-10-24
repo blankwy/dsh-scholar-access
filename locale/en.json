@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Campus Scholar Access",
+    "description": "Routes DSH's own international traffic (GitHub, Hugging Face, npm, PyPI) through the CERNET academic channel with its DoH resolver and reverse proxy — toggle and reachability test in the plugin page."
+  }
+}

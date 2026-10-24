@@ -1,0 +1,24 @@
+# dsh-scholar-access — 校园网学术通道加速
+#
+# Why this bundle exists: a DSH client sitting on a Chinese campus network can
+# reach GitHub / Hugging Face / npm / PyPI through the CERNET academic channel
+# (scholar.edu.cn). The channel is only two things: a DoH resolver that answers
+# whitelisted domains with 205.164.0.0/16, and a reverse proxy there whose TLS
+# chain is signed by "Scholar Root CA v1". This bundle does both in-process, so
+# scholartools.exe does not have to stay running and the trust decision stays
+# visible (and reversible) in the plugin's own settings page.
+#
+# Everything below is the row's default config; the plugin page edits the live
+# values, and the profile patch layer keeps them across upgrades.
+- insert:
+    - id: scholar-access
+      name: dsh-scholar-access
+      config:
+        enabled: true
+        dohEndpoint: https://doh.scholar.work/dns-query
+        mode: auto
+        patchHostFetch: true
+        startProxy: true
+        proxyPort: 0
+        injectEnv: true
+        extraHosts: []

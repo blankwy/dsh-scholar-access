@@ -1,0 +1,64 @@
+{
+  "name": "dsh-scholar-access",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Campus Scholar Access Accelerator for DeepSeek Harness: route DSH's own international traffic (GitHub, Hugging Face, npm, PyPI) over the CERNET academic channel via its DoH resolver and reverse proxy, with explicit, revocable certificate trust instead of a machine-wide install.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blankwy/dsh-scholar-access.git"
+  },
+  "homepage": "https://github.com/blankwy/dsh-scholar-access#readme",
+  "bugs": {
+    "url": "https://github.com/blankwy/dsh-scholar-access/issues"
+  },
+  "author": "blankwy",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node --check lib/network.js && node --check lib/proxy.js && node --check lib/certstore.js && node --check lib/scholar-ca.js",
+    "verify": "node scripts/verify.mjs"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "scholar",
+    "cernet",
+    "campus-network",
+    "accelerator",
+    "dns-over-https",
+    "github",
+    "huggingface"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    },
+    "engines": {
+      "dsh": ">=0.2.0"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "校园网学术通道加速",
+    "description": "用学术通道的 DoH 解析与反向代理，让 DSH 自身与 agent 子进程在校园网内访问 GitHub、Hugging Face、npm、PyPI；插件页可开关并实测可达性。"
+  }
+}
